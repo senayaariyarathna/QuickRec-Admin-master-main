@@ -1,0 +1,39 @@
+{
+    "applicants": [
+      {
+        "basicDetails": {
+          "name": "Mr.Smith",
+          "nicNumber": "987620044V",
+          "sex": "Male",
+          "civilStatus": "Single",
+          "dateOfBirth": "1999-02-04",
+          "mobileNo": "+94714414555",
+          "address": "123/2,Matugama Road."
+        },
+        "educationQualifications": [
+          {
+            "university": "University of Colombo",
+            "degree": "BSc in Software Engineer"
+          }
+        ],
+        "professionalQualification": "Master of Business Administration",
+        "otherAchievements": "Volunteer Teacher",
+        "marks": 85
+      },
+      {
+        "basicDetails": {
+          "name": "Jane Smith",
+          "nicNumber": "987654321V",
+          "sex": "Female",
+          "civilStatus": "Married",
+          "dateOfBirth": "1988-05-15",
+          "mobileNo": "+94714414555",
+          "address": "456 Elm St, Town"
+        },
+        "educationQualifications": [],
+        "professionalQualification": "Project Management Professional",
+        "otherAchievements": "",
+        "marks": 92
+      }
+    ]
+  }
