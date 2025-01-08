@@ -101,12 +101,18 @@ export const api = createApi({
 
     //.....pini.......................................................................................
 
-    applicantsDetails: builder.query({
-      query: ({ userId }) => ({
-        url: `application/ApplicantsDetails?userId=${userId}`,
-        method: "GET",
+  // getAllApplicantsDetails: builder.query({
+  //     query: () => ({
+  //       url: `application/AllApplicantsDetails`,
+  //       method: "GET",
+  getAllApplicantsDetails: builder.query({
+    query: (params) => ({
+      url: params?.vacancyId 
+        ? `application/AllApplicantsDetails?vacancyId=${params.vacancyId}`
+        : 'application/AllApplicantsDetails',
+      method: "GET",
       }),
-      providesTags: ["Application"],
+     
     }),
     
   }),
@@ -122,5 +128,5 @@ export const {
   useReviewApplicationMutation,
   useGetEmployeeQuery,
   useChangeUserRoleMutation,
-  useApplicantsDetailsQuery
+  useGetAllApplicantsDetailsQuery
 } = api;

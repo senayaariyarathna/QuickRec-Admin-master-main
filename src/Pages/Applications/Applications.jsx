@@ -116,7 +116,7 @@ const Applications = () => {
 
   return (
     <Box sx={{ backgroundColor: theme.palette.background.main, pb: "3rem" }}>
-      <Container maxWidth="lg">x
+      <Container maxWidth="lg">
         <Paper sx={{ p: "3rem 3vw" }}>
           <Grid
             container
@@ -422,30 +422,70 @@ const Applications = () => {
           </Dialog>
 
 
-                 {/* ---------- Print Button ---------- */}
-              <Box sx={{ mt: 4, display: "flex", justifyContent: "flex-end" }}>
-                 <Button
-                  onClick={() => navigate("/PrintableReport")}
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    padding: "0.5rem 1rem",
-                    backgroundColor: "primary.main",
-                    color: "primary.contrastText",
-                    borderRadius: "5px",
-                    fontWeight: 500,
-                    fontSize: "0.875rem",
-                    boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
-                    "&:hover": {
-                    backgroundColor: "primary.dark",
-               },
-               }}
-              >
-              <PrintIcon sx={{ marginRight: "0.5rem" }} />
-              Print
-              </Button>
-              </Box>
+                 {/* ---------- Print Button ----------*/}
+              {/* <Box sx={{ mt: 4, display: "flex", justifyContent: "flex-end" }}>
+                <Button
+                 onClick={() => navigate("/PrintableReport", { state: { vacancyId } })}
+                 sx={{
+                     display: "flex",
+                     alignItems: "center",
+                     justifyContent: "center",
+                     padding: "0.5rem 1rem",
+                     backgroundColor: "primary.main",
+                     color: "primary.contrastText",
+                     borderRadius: "5px",
+                     fontWeight: 500,
+                     fontSize: "0.875rem",
+                     boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+                     "&:hover": {
+                     backgroundColor: "primary.dark",
+                      },
+                     }}
+                    >
+                      <PrintIcon sx={{ marginRight: "0.5rem" }} />
+                       Print
+                 </Button>
+              </Box>  */}
+
+
+                    {/* ---------- Print Button ---------- */}
+
+                    <Box sx={{ mt: 4, display: "flex", justifyContent: "flex-end" }}>
+                      <Button
+                        onClick={() => {
+                          // Store vacancy data in session storage
+                          const vacancyData = {
+                            vacancyId: vacancyId,
+                            vacancyName: vacancy?.VacancyName
+                          };
+                          console.log("Storing vacancy data:", vacancyData); // Debug log
+                          sessionStorage.setItem('printVacancyData', JSON.stringify(vacancyData));
+                          
+                          // Open in new tab
+                          window.open("/PrintableReport", "_blank");
+                        }}
+                        sx={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          padding: "0.5rem 1rem",
+                          backgroundColor: "primary.main",
+                          color: "primary.contrastText",
+                          borderRadius: "5px",
+                          fontWeight: 500,
+                          fontSize: "0.875rem",
+                          boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+                          "&:hover": {
+                            backgroundColor: "primary.dark",
+                          },
+                        }}
+                      >
+                        <PrintIcon sx={{ marginRight: "0.5rem" }} />
+                        Print
+                      </Button>
+                    </Box>
+
+
 
 
   
